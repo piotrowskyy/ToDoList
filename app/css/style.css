@@ -15,7 +15,8 @@ ul {
   justify-content: center;
   align-items: center;
   border: none;
-  padding: 0px; }
+  padding: 0px;
+  outline: none; }
 
 .transparent {
   background-color: transparent; }
@@ -67,7 +68,8 @@ header {
         font-size: 23px;
         color: white;
         padding-left: 20px;
-        padding-right: 85px; }
+        padding-right: 85px;
+        outline: none; }
     header .nav .textbox_input_button {
       position: relative;
       right: 40px;
@@ -84,26 +86,59 @@ main {
   justify-content: center;
   margin-top: 22px; }
   main .todo_simple {
-    width: 95%; }
+    display: flex;
+    justify-content: center;
+    width: 100%; }
     main .todo_simple li {
       display: flex;
       justify-content: space-between;
-      align-items: center; }
+      align-items: center;
+      margin-bottom: 22px;
+      padding: 20px;
+      width: 90%; }
       main .todo_simple li .todo_simple_text {
         font-size: 40px;
-        margin-left: 50px; }
+        padding: 40px; }
       main .todo_simple li .todo_simple_buttons {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        height: 100px;
+        height: 35px;
         width: 100px;
         margin-right: 50px; }
         main .todo_simple li .todo_simple_buttons .trash_button {
           margin-right: 25px; }
           main .todo_simple li .todo_simple_buttons .trash_button svg {
-            fill: #d80027; }
-        main .todo_simple li .todo_simple_buttons .done_button svg {
-          fill: #67a63a; }
+            fill: #d4d9da;
+            transition: ease-in 0.12s; }
+        main .todo_simple li .todo_simple_buttons .trash_button:hover svg {
+          fill: #d80027;
+          transition: ease-in 0.12s; }
+        main .todo_simple li .todo_simple_buttons .done_button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 3px solid #67a63a;
+          padding: 0px;
+          border-radius: 20px;
+          transition: ease-in 0.12s;
+          outline: none; }
+          main .todo_simple li .todo_simple_buttons .done_button svg {
+            fill: #67a63a;
+            transition: ease-in 0.12s; }
+        main .todo_simple li .todo_simple_buttons .done_button:hover {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #67a63a;
+          padding: 0px;
+          border-radius: 20px;
+          transition: ease-in 0.12s; }
+          main .todo_simple li .todo_simple_buttons .done_button:hover svg {
+            fill: white;
+            transition: ease-in 0.12s; }
         main .todo_simple li .todo_simple_buttons svg {
-          height: 35px; }
+          height: 35px;
+          width: 35px; }
+    main .todo_simple li:last-of-type {
+      margin-bottom: 0px; }
