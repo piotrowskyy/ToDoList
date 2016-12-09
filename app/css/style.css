@@ -1,0 +1,109 @@
+body {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  margin: 0px;
+  padding: 0px;
+  background: #ecf0f1 !important; }
+
+ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px; }
+
+.button_default {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 0px; }
+
+.transparent {
+  background-color: transparent; }
+
+.textbox_input_default {
+  border: none;
+  background-color: #adca9b; }
+
+.svg_nav_white {
+  height: 50px;
+  fill: white; }
+
+.default_tab {
+  width: 100%;
+  height: 140px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 0px 8px 0px #bcc3c5; }
+
+header {
+  background: #6a9e48;
+  width: 100%;
+  box-shadow: 0px 3px 10px 0px #bcc3c5; }
+  header .nav {
+    display: flex;
+    justify-content: space-between; }
+    header .nav .nav_menu_button {
+      margin: 50px; }
+    header .nav .nav_search_button {
+      margin: 50px;
+      transform: scaleX(-1);
+      -webkit-transform: scaleX(-1);
+      -webkit-transform: scaleX(-1); }
+    header .nav .nav_textbox {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      header .nav .nav_textbox ::-webkit-input-placeholder {
+        color: white; }
+      header .nav .nav_textbox ::placeholder {
+        color: white; }
+      header .nav .nav_textbox input {
+        position: relative;
+        left: 35px;
+        width: 300px;
+        height: 75px;
+        border-radius: 50px;
+        text-indent: 5px;
+        font-size: 23px;
+        color: white;
+        padding-left: 20px;
+        padding-right: 85px; }
+    header .nav .textbox_input_button {
+      position: relative;
+      right: 40px;
+      height: 75px;
+      width: 75px;
+      border-radius: 50px;
+      background-color: white; }
+      header .nav .textbox_input_button svg {
+        height: 35px;
+        fill: #91dc5a; }
+
+main {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px; }
+  main .todo_simple {
+    width: 95%; }
+    main .todo_simple li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      main .todo_simple li .todo_simple_text {
+        font-size: 40px;
+        margin-left: 50px; }
+      main .todo_simple li .todo_simple_buttons {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100px;
+        width: 100px;
+        margin-right: 50px; }
+        main .todo_simple li .todo_simple_buttons .trash_button {
+          margin-right: 25px; }
+          main .todo_simple li .todo_simple_buttons .trash_button svg {
+            fill: #d80027; }
+        main .todo_simple li .todo_simple_buttons .done_button svg {
+          fill: #67a63a; }
+        main .todo_simple li .todo_simple_buttons svg {
+          height: 35px; }

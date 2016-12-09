@@ -1,0 +1,30 @@
+{
+  "name": "popover",
+  "version": "1.0.0",
+  "description": "The first clean js app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piotrowskyy/popover.git"
+  },
+  "keywords": [
+    "popover",
+    "js",
+    "javascript"
+  ],
+  "author": "Piotr \"pszyrek\" Bujna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/piotrowskyy/popover/issues"
+  },
+  "homepage": "https://github.com/piotrowskyy/popover#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-server-livereload": "^1.9.2"
+  }
+}
