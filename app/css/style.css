@@ -215,3 +215,11 @@ main {
 
 .icon-menu:before {
   content: '\f0c9'; }
+
+nav .icon {
+  color: white;
+  font-size: 40px; }
+
+.nav_textbox .icon {
+  color: #6A9E48;
+  font-size: 46px; }
