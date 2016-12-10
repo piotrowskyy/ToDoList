@@ -2,21 +2,82 @@ var svg_trash = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59 59"><pa
 
 var svg_done = '<svg version="1" xmlns="http://www.w3.org/2000/svg" width="569.333" height="569.333" viewBox="0 0 427.000000 427.000000"><path d="M238.1 183.5C209.8 212.4 186.4 236 186 236c-.4 0-12.3-11.7-26.3-26-14.1-14.3-26-26-26.4-26-.5 0-7 6.2-14.6 13.8L105 211.5l41.8 41.7 41.7 41.7 66.5-64.5c36.6-35.5 66.6-64.9 66.7-65.2.1-.4-7.1-8.2-16-17.5L289.5 131l-51.4 52.5z"/></svg>';
 
-document.getElementById('add').addEventListener('click', function() {
-    var value = document.getElementById('item').value;
-    if(value) AddItemToDo(value);
+document.getElementById('add').addEventListener('click', function () {
+    var input = document.getElementById('input');
+    var value = input.value;
+    if (value) {
+        AddItemToDo(value);
+        input.value = "";
+    };
 });
 
-    document.getElementById('item').addEventListener('keyup', function(e) {
-        var value = document.getElementById('item').value;
-        if(e.keyCode == 13 && value) AddItemToDo(value);
-    })
+input.addEventListener('keyup', function (e) {
+    var value = input.value;
+    if (e.keyCode == 13 && value) {
+        AddItemToDo(value)
+        input.value = '';
+    };
+});
+
+function splitLine(length) {
+    var div_split_line = document.getElementById('split_line');
+    if (length > 0) {
+        div_split_line.classList.add('split_line');
+    } else {
+        div_split_line.classList.remove('split_line');
+    }
+}
+
+function completeLength() {
+    var ulLength = document.getElementById('complete').getElementsByTagName('li').length;
+    splitLine(ulLength);
+}
+
+function RemoveItem() {
+    var item = this.parentNode.parentNode;
+    var parent = item.parentNode
+
+    parent.removeChild(item)
+
+    completeLength();
+}
+
+function doneItem() {
+    var item = this.parentNode.parentNode;
+    var parent = item.parentNode;
+
+    var list_complete = document.getElementById('complete');
+    list_complete.insertBefore(item, list_complete.childNodes[0]);
+
+    var done_button_complete = document.getElementById('done_button')
+    done_button_complete.classList.remove('done_button');
+    done_button_complete.classList.add('done_button_complete');
+
+    done_button_complete.addEventListener('click', doneItemUncomplete);
+
+    completeLength();
+}
+
+function doneItemUncomplete() {
+    var item = this.parentNode.parentNode;
+    var parent = item.parentNode;
+
+    var list_complete = document.getElementById('todo_simple');
+    list_complete.insertBefore(item, list_complete.childNodes[0]);
+
+    var done_button = document.getElementById('done_button');
+    done_button.classList.remove('done_button_complete');
+    done_button.classList.add('done_button');
+
+    done_button.addEventListener('click', doneItem);
+}
 
 function AddItemToDo(text) {
     var list = document.getElementById('todo_simple');
 
-    var tab = document.createElement('li');
-    tab.classList.add('default_tab')
+    var item = document.createElement('li');
+    item.classList.add('default_tab')
+    item.id = ('item');
 
     var span_text = document.createElement('span');
     span_text.classList.add('todo_simple_text');
@@ -27,19 +88,25 @@ function AddItemToDo(text) {
 
     var trash_button = document.createElement('button');
     trash_button.classList.add('trash_button');
+    trash_button.id = 'trash_button';
     trash_button.classList.add('button_default');
-    trash_button.classList.add('transparent')
+    trash_button.classList.add('transparent');
     trash_button.innerHTML = svg_trash;
+    trash_button.addEventListener('click', RemoveItem);
 
     var done_button = document.createElement('button');
     done_button.classList.add('done_button');
-    done_button.classList.add('transparent')
+    done_button.classList.add('transparent');
+    done_button.id = 'done_button';
     done_button.innerHTML = svg_done;
+    done_button.addEventListener('click', doneItem);
 
-    tab.appendChild(span_text);
-    tab.appendChild(buttons);
+    item.appendChild(span_text);
+    item.appendChild(buttons);
     buttons.appendChild(trash_button);
     buttons.appendChild(done_button);
 
-    list.insertBefore(tab, list.childNodes[0]);
+    list.insertBefore(item, list.childNodes[0]);
+
+
 };

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500&amp;subset=latin-ext" rel="stylesheet">
 </head>
+
 <body>
 	<header>
 		<div class="nav">
@@ -13,7 +15,7 @@
 				<svg class="svg_nav_white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 286.054 286.054"><path d="M277.115 160.906h-107.27c-4.943 0-8.94 3.996-8.94 8.94v107.27c0 4.942 3.997 8.938 8.94 8.938h107.27c4.943 0 8.94-3.996 8.94-8.94v-107.27c0-4.942-3.997-8.938-8.94-8.938zm0-160.905h-107.27c-4.943 0-8.94 4.006-8.94 8.94v107.27c0 4.943 3.997 8.94 8.94 8.94h107.27c4.943 0 8.94-3.997 8.94-8.94V8.94c0-4.934-3.997-8.94-8.94-8.94zM116.21 0H8.94C4.004 0 0 4.007 0 8.94v107.27c0 4.943 4.005 8.94 8.94 8.94h107.27c4.933 0 8.938-3.997 8.938-8.94V8.94c0-4.934-4.004-8.94-8.94-8.94zm0 160.906H8.94c-4.935 0-8.94 3.996-8.94 8.94v107.27c0 4.942 4.005 8.938 8.94 8.938h107.27c4.933 0 8.938-3.996 8.938-8.94v-107.27c0-4.942-4.004-8.938-8.94-8.938z"/></svg>
 			</button>
 			<div class="nav_textbox">
-				<input id="item" type="text" placeholder="Enter an activity.." class="textbox_input_default">
+				<input id="input" type="text" placeholder="Enter an activity.." class="textbox_input_default">
 				<button id="add" class="textbox_input_button button_default">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42"><path d="M42 19H23V0h-4v19H0v4h19v19h4V23h19"/></svg>
 				</button>
@@ -23,8 +25,7 @@
 			</button>
 		</div>
 	</header>
-
-	<main>
+	<main id="container">
 		<ul class="todo_simple" id="todo_simple">
 			<!--<li class="default_tab">
 				<span class="todo_simple_text">Active to do</span>
@@ -34,8 +35,11 @@
 				</div>
 			</li>-->
 		</ul>
+		<div id="split_line"></div>
+		<ul class="todo_simple_done" id="complete">
+		</ul>
 	</main>
-	
-		<script type="text/javascript" src="js/scripts.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
 </body>
+
 </html>

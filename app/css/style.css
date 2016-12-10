@@ -16,7 +16,8 @@ ul {
   align-items: center;
   border: none;
   padding: 0px;
-  outline: none; }
+  outline: none;
+  cursor: pointer; }
 
 .transparent {
   background-color: transparent; }
@@ -83,38 +84,38 @@ header {
 
 main {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin-top: 22px; }
-  main .todo_simple {
+  main ul {
     display: flex;
-    justify-content: center;
-    width: 100%; }
-    main .todo_simple li {
+    align-items: center;
+    flex-direction: column;
+    width: 95%; }
+    main ul li {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 22px;
-      padding: 20px;
-      width: 90%; }
-      main .todo_simple li .todo_simple_text {
+      margin-bottom: 22px; }
+      main ul li .todo_simple_text {
         font-size: 40px;
         padding: 40px; }
-      main .todo_simple li .todo_simple_buttons {
+      main ul li .todo_simple_buttons {
         display: flex;
         justify-content: space-around;
         align-items: center;
         height: 35px;
         width: 100px;
         margin-right: 50px; }
-        main .todo_simple li .todo_simple_buttons .trash_button {
+        main ul li .todo_simple_buttons .trash_button {
           margin-right: 25px; }
-          main .todo_simple li .todo_simple_buttons .trash_button svg {
+          main ul li .todo_simple_buttons .trash_button svg {
             fill: #d4d9da;
             transition: ease-in 0.12s; }
-        main .todo_simple li .todo_simple_buttons .trash_button:hover svg {
+        main ul li .todo_simple_buttons .trash_button:hover svg {
           fill: #d80027;
           transition: ease-in 0.12s; }
-        main .todo_simple li .todo_simple_buttons .done_button {
+        main ul li .todo_simple_buttons .done_button {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -122,23 +123,56 @@ main {
           padding: 0px;
           border-radius: 20px;
           transition: ease-in 0.12s;
-          outline: none; }
-          main .todo_simple li .todo_simple_buttons .done_button svg {
+          outline: none;
+          cursor: pointer; }
+          main ul li .todo_simple_buttons .done_button svg {
             fill: #67a63a;
             transition: ease-in 0.12s; }
-        main .todo_simple li .todo_simple_buttons .done_button:hover {
+        main ul li .todo_simple_buttons .done_button:hover {
           display: flex;
           justify-content: center;
           align-items: center;
           background-color: #67a63a;
           padding: 0px;
           border-radius: 20px;
+          outline: none;
           transition: ease-in 0.12s; }
-          main .todo_simple li .todo_simple_buttons .done_button:hover svg {
+          main ul li .todo_simple_buttons .done_button:hover svg {
             fill: white;
             transition: ease-in 0.12s; }
-        main .todo_simple li .todo_simple_buttons svg {
+        main ul li .todo_simple_buttons svg {
           height: 35px;
           width: 35px; }
-    main .todo_simple li:last-of-type {
+    main ul li:last-of-type {
       margin-bottom: 0px; }
+  main .split_line {
+    border-bottom: 2px solid #d4d9da;
+    width: 80%;
+    margin: 50px 0 50px 0; }
+  main .todo_simple_done .done_button_complete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #67a63a;
+    padding: 0px;
+    border: 3px solid #67a63a;
+    border-radius: 20px;
+    transition: ease-in 0.12s;
+    outline: none; }
+    main .todo_simple_done .done_button_complete svg {
+      fill: white;
+      transition: ease-in 0.12s; }
+  main .todo_simple_done .done_button_complete:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #67a63a;
+    background-color: white;
+    padding: 0px;
+    border-radius: 20px;
+    transition: ease-in 0.12s;
+    outline: none;
+    cursor: pointer; }
+    main .todo_simple_done .done_button_complete:hover svg {
+      fill: #67a63a;
+      transition: ease-in 0.12s; }
