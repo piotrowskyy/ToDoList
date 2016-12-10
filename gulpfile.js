@@ -9,7 +9,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('watch-sass', function() {
-	gulp.watch('app/scss/style.scss', ['styles']);
+	gulp.watch('app/scss/*.scss', ['styles']);
 });
 
 gulp.task('webserver', ['watch-sass'], function() {
