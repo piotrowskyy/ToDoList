@@ -21,10 +21,13 @@ input.addEventListener('keyup', function (e) {
 
 function splitLine(length) {
     var div_split_line = document.getElementById('split_line');
+    var title = document.getElementById('title_complete');
     if (length > 0) {
         div_split_line.classList.add('split_line');
+        title.classList.remove('complete');
     } else {
         div_split_line.classList.remove('split_line');
+        title.classList.add('complete');
     }
 }
 

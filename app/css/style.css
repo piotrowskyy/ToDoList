@@ -148,7 +148,7 @@ main {
   main .split_line {
     border-bottom: 2px solid #d4d9da;
     width: 80%;
-    margin: 50px 0 50px 0; }
+    margin: 25px 0 25px 0; }
   main .todo_simple_done .done_button_complete {
     display: flex;
     justify-content: center;
@@ -223,3 +223,13 @@ nav .icon {
 .nav_textbox .icon {
   color: #6A9E48;
   font-size: 46px; }
+
+.title {
+  font-size: 35px;
+  font-weight: 500;
+  color: #d4d9da;
+  cursor: default;
+  margin-bottom: 20px; }
+
+.complete {
+  color: transparent !important; }
