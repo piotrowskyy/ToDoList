@@ -31,6 +31,7 @@ function splitLine(length) {
 function completeLength() {
     var ulLength = document.getElementById('complete').getElementsByTagName('li').length;
     splitLine(ulLength);
+    console.log(ulLength);
 }
 
 function RemoveItem() {
@@ -46,14 +47,20 @@ function doneItem() {
     var item = this.parentNode.parentNode;
     var parent = item.parentNode;
 
+    console.log(item, parent, this)
+
     var list_complete = document.getElementById('complete');
     list_complete.insertBefore(item, list_complete.childNodes[0]);
 
-    var done_button_complete = document.getElementById('done_button')
-    done_button_complete.classList.remove('done_button');
-    done_button_complete.classList.add('done_button_complete');
 
-    done_button_complete.addEventListener('click', doneItemUncomplete);
+    this.classList.remove('done_button');
+    this.classList.add('done_button_complete');
+
+    this.addEventListener('click', doneItemUncomplete);
+    this.removeEventListener('click', doneItem);
+
+
+    console.log('complete');
 
     completeLength();
 }
@@ -65,11 +72,16 @@ function doneItemUncomplete() {
     var list_complete = document.getElementById('todo_simple');
     list_complete.insertBefore(item, list_complete.childNodes[0]);
 
-    var done_button = document.getElementById('done_button');
-    done_button.classList.remove('done_button_complete');
-    done_button.classList.add('done_button');
 
-    done_button.addEventListener('click', doneItem);
+    this.classList.remove('done_button_complete');
+    this.classList.add('done_button');
+
+    this.addEventListener('click', doneItem)
+    this.removeEventListener('click', doneItemUncomplete)
+
+    console.log('uncomplete');
+
+    completeLength();
 }
 
 function AddItemToDo(text) {
