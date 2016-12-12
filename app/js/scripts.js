@@ -14,15 +14,17 @@ document.getElementById('add').addEventListener('click', function () {
 input.addEventListener('keyup', function (e) {
     var value = input.value;
     if (e.keyCode == 13 && value) {
-        AddItemToDo(value)
+        AddItemToDo(value);
         input.value = '';
     };
 });
 
-function splitLine(length) {
+//Line which split complete and uncomplete tasks and add "uncomplete" text
+
+function splitLine(ul_length) {
     var div_split_line = document.getElementById('split_line');
     var title = document.getElementById('title_complete');
-    if (length > 0) {
+    if (ul_length > 0) {
         div_split_line.classList.add('split_line');
         title.classList.remove('complete');
     } else {
@@ -31,39 +33,40 @@ function splitLine(length) {
     }
 }
 
+//Check length of complete task list
+
 function completeLength() {
     var ulLength = document.getElementById('complete').getElementsByTagName('li').length;
     splitLine(ulLength);
-    console.log(ulLength);
 }
+
+//Remove item and recheck length of complete task list
 
 function RemoveItem() {
     var item = this.parentNode.parentNode;
-    var parent = item.parentNode
+    var parent = item.parentNode;
 
-    parent.removeChild(item)
+    parent.removeChild(item);
 
     completeLength();
 }
+
+//
 
 function doneItem() {
     var item = this.parentNode.parentNode;
     var parent = item.parentNode;
 
-    console.log(item, parent, this)
-
     var list_complete = document.getElementById('complete');
     list_complete.insertBefore(item, list_complete.childNodes[0]);
 
+    console.log(this)
 
     this.classList.remove('done_button');
     this.classList.add('done_button_complete');
 
     this.addEventListener('click', doneItemUncomplete);
     this.removeEventListener('click', doneItem);
-
-
-    console.log('complete');
 
     completeLength();
 }
@@ -72,7 +75,7 @@ function doneItemUncomplete() {
     var item = this.parentNode.parentNode;
     var parent = item.parentNode;
 
-    var list_complete = document.getElementById('todo_simple');
+    var list_complete = document.getElementById('uncomplete');
     list_complete.insertBefore(item, list_complete.childNodes[0]);
 
 
@@ -88,7 +91,7 @@ function doneItemUncomplete() {
 }
 
 function AddItemToDo(text) {
-    var list = document.getElementById('todo_simple');
+    var list = document.getElementById('uncomplete');
 
     var item = document.createElement('li');
     item.classList.add('default_tab')
