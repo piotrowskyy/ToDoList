@@ -2,6 +2,8 @@ var svg_trash = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59 59"><pa
 
 var svg_done = '<svg version="1" xmlns="http://www.w3.org/2000/svg" width="569.333" height="569.333" viewBox="0 0 427.000000 427.000000"><path d="M238.1 183.5C209.8 212.4 186.4 236 186 236c-.4 0-12.3-11.7-26.3-26-14.1-14.3-26-26-26.4-26-.5 0-7 6.2-14.6 13.8L105 211.5l41.8 41.7 41.7 41.7 66.5-64.5c36.6-35.5 66.6-64.9 66.7-65.2.1-.4-7.1-8.2-16-17.5L289.5 131l-51.4 52.5z"/></svg>';
 
+//add li to todo list uncomplete
+
 document.getElementById('add').addEventListener('click', function () {
     var input = document.getElementById('input');
     var value = input.value;
@@ -51,7 +53,7 @@ function RemoveItem() {
     completeLength();
 }
 
-//
+//Adding item to complete list
 
 function doneItem() {
     var item = this.parentNode.parentNode;
@@ -59,8 +61,6 @@ function doneItem() {
 
     var list_complete = document.getElementById('complete');
     list_complete.insertBefore(item, list_complete.childNodes[0]);
-
-    console.log(this)
 
     this.classList.remove('done_button');
     this.classList.add('done_button_complete');
@@ -70,6 +70,8 @@ function doneItem() {
 
     completeLength();
 }
+
+//Readd item to uncomplete list
 
 function doneItemUncomplete() {
     var item = this.parentNode.parentNode;
@@ -82,13 +84,13 @@ function doneItemUncomplete() {
     this.classList.remove('done_button_complete');
     this.classList.add('done_button');
 
-    this.addEventListener('click', doneItem)
-    this.removeEventListener('click', doneItemUncomplete)
-
-    console.log('uncomplete');
+    this.addEventListener('click', doneItem);
+    this.removeEventListener('click', doneItemUncomplete);
 
     completeLength();
 }
+
+//create li and append it to ul list uncomplete
 
 function AddItemToDo(text) {
     var list = document.getElementById('uncomplete');
